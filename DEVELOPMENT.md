@@ -116,7 +116,7 @@ wp theme activate etchwp-child-theme
 
 1. **Clone Boilerplate**
    ```bash
-   git clone https://github.com/Digital-Gravy/etch-child-theme.git client-name-theme
+   git clone https://github.com/akaienso/etchwp-child-theme.git client-name-theme
    cd client-name-theme
    ```
 

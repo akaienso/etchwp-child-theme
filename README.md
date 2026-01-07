@@ -16,7 +16,7 @@ A customizable child theme boilerplate for the EtchWP (Edge Theme) ecosystem. Th
 1. Download or clone this repository to your WordPress themes directory:
    ```bash
    cd wp-content/themes/
-   git clone https://github.com/Digital-Gravy/etch-child-theme.git etchwp-child-theme
+   git clone https://github.com/akaienso/etchwp-child-theme.git etchwp-child-theme
    ```
 
 2. Ensure the parent **Edge Theme** (`etch-theme`) is installed and activated.
@@ -212,14 +212,16 @@ For complete EtchWP documentation, visit:
 
 ## Contributing
 
-This is a boilerplate maintained by Digital Gravy. For contributions:
+This is a customized version of the EtchWP child theme boilerplate. The upstream source is maintained by Digital Gravy at https://github.com/Digital-Gravy/etch-child-theme.
+
+For contributions to this repository:
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
 4. Submit a pull request
 
-For bug reports or feature requests, please open an issue on GitHub.
+For bug reports or feature requests related to this customized version, please open an issue on this repository. For issues with the upstream boilerplate, please contact Digital Gravy.
 
 ## License
 
@@ -250,6 +252,7 @@ Full license text: [LICENSE](LICENSE)
 
 ---
 
-**Maintained by**: Digital Gravy  
+**Repository**: [akaienso/etchwp-child-theme](https://github.com/akaienso/etchwp-child-theme)  
+**Upstream Source**: [Digital-Gravy/etch-child-theme](https://github.com/Digital-Gravy/etch-child-theme)  
 **Parent Theme**: [Edge Theme](https://etchwp.com/)  
 **Documentation**: [docs.etchwp.com](https://docs.etchwp.com)

@@ -146,8 +146,9 @@ Before deployment:
 
 ## Upstream Sync Process
 
-The child theme boilerplate is maintained upstream at:
-- **Repository**: https://github.com/Digital-Gravy/etch-child-theme
+This repository is a customized version of the EtchWP child theme boilerplate. The upstream source is maintained at:
+- **This Repository**: https://github.com/akaienso/etchwp-child-theme (your customized version)
+- **Upstream Repository**: https://github.com/Digital-Gravy/etch-child-theme (original boilerplate)
 - **Sync Method**: Git merge (see `UPSTREAM-SYNC.md` for details)
 
 ### Key Points
@@ -167,6 +168,7 @@ The child theme boilerplate is maintained upstream at:
 ## Resources
 
 - Official Documentation: https://docs.etchwp.com
+- This Repository: https://github.com/akaienso/etchwp-child-theme
 - Upstream Repository: https://github.com/Digital-Gravy/etch-child-theme
 - Parent Theme: Updated via WordPress theme updates
 - Edge Plugin: Updated via WordPress plugin updates
