@@ -1,0 +1,185 @@
+# EtchWP Development Rules
+
+## File Modification Rules
+
+- **NEVER** modify files in `etch-theme/` (parent theme directory)
+- **ALL** customizations go in `etchwp-child-theme/` directory
+- Document all hook usage with inline comments explaining purpose
+- When overriding templates, copy from parent to child `templates/` directory
+
+## Coding Standards
+
+### PHP Standards
+- Follow PSR-12 coding standards
+- Use 4-space indentation (no tabs)
+- Declare strict types: `declare(strict_types=1);`
+- Prefix all custom functions with `etchwp_` to avoid conflicts
+- Use WordPress Coding Standards for WordPress-specific code
+- Document functions with PHPDoc comments
+
+### CSS Standards
+- Use BEM naming convention where applicable
+- Follow WordPress CSS Coding Standards
+- No inline styles in templates
+- Organize styles in logical sections with comments
+- Use CSS custom properties for theme values when possible
+
+### JavaScript Standards
+- Use ES2022+ syntax
+- Semicolons required
+- Use WordPress JavaScript Coding Standards
+- Enqueue scripts properly via `wp_enqueue_script()`
+- Use WordPress localization functions for strings
+
+## Template Override Rules
+
+### When to Override
+- Override parent templates only when necessary
+- Prefer hooks and filters over template overrides when possible
+- Document why a template override is needed
+
+### How to Override
+1. Copy template from `etch-theme/templates/` to `etchwp-child-theme/templates/`
+2. Maintain same file structure and naming
+3. Add comments explaining customizations
+4. Test thoroughly after override
+
+### Block Templates
+- Block templates use HTML format (`.html` files)
+- Can be edited via Site Editor in WordPress admin
+- Child theme templates take precedence over parent
+
+## Naming Conventions
+
+### Functions
+- Prefix: `etchwp_` (e.g., `etchwp_enqueue_assets()`)
+- Use descriptive, lowercase names with underscores
+- Example: `etchwp_custom_post_type_setup()`
+
+### CSS Classes
+- Use BEM methodology: `.block__element--modifier`
+- Prefix custom classes: `.etchwp-` when appropriate
+- Example: `.etchwp-header__navigation--sticky`
+
+### File Names
+- Use lowercase with hyphens: `custom-functions.php`
+- Descriptive names: `admin-settings.php` not `admin.php`
+- Template files: match WordPress naming conventions
+
+### Constants
+- Uppercase with underscores: `ETCHWP_VERSION`
+- Prefix with `ETCHWP_` to avoid conflicts
+
+## Git Commit Guidelines
+
+### Commit Message Format
+```
+type(scope): subject
+
+body (optional)
+
+footer (optional)
+```
+
+### Types
+- `feat`: New feature
+- `fix`: Bug fix
+- `docs`: Documentation changes
+- `style`: Code style changes (formatting)
+- `refactor`: Code refactoring
+- `test`: Adding tests
+- `chore`: Maintenance tasks
+
+### Examples
+```
+feat(functions): add custom post type registration
+
+Add support for custom post type with archive and single templates.
+
+fix(templates): correct 404 template block structure
+
+docs(readme): update installation instructions
+```
+
+### Branch Naming
+- `develop`: Development branch
+- `main`: Production-ready code
+- `release/*`: Release branches
+- `release/alpha-*`: Alpha releases
+- `release/beta-*`: Beta releases
+- `release/RC-*`: Release candidates
+- `feature/*`: Feature branches
+- `fix/*`: Bug fix branches
+
+## Before Committing Checklist
+
+### Code Quality
+- [ ] Code follows PSR-12 (PHP) or WordPress standards
+- [ ] All functions are properly documented with PHPDoc
+- [ ] No debugging code (var_dump, print_r, console.log) left in code
+- [ ] No commented-out code blocks
+- [ ] No hardcoded values (use constants or options)
+
+### Functionality
+- [ ] All custom functions tested
+- [ ] Hooks and filters work as expected
+- [ ] Template overrides render correctly
+- [ ] No PHP errors or warnings
+- [ ] No JavaScript console errors
+
+### WordPress Standards
+- [ ] Proper use of WordPress APIs (wp_enqueue_*, add_action, etc.)
+- [ ] Internationalization functions used for strings (`__()`, `_e()`, etc.)
+- [ ] Text domain matches theme: `etch-child-theme`
+- [ ] Proper escaping and sanitization of output
+- [ ] Nonces used for form submissions
+
+### File Organization
+- [ ] No files in `etch-theme/` were modified
+- [ ] All customizations are in `etchwp-child-theme/`
+- [ ] Template overrides are in correct directory structure
+- [ ] Asset files (CSS/JS) are properly organized
+
+### Documentation
+- [ ] Inline comments explain complex logic
+- [ ] Function documentation includes @param and @return tags
+- [ ] README updated if installation steps changed
+- [ ] Changelog updated for user-facing changes
+
+### Testing
+- [ ] Tested on required WordPress version (6.9+)
+- [ ] Tested with required PHP version (8.0+)
+- [ ] Edge Plugin installed and activated
+- [ ] Site Editor functionality verified
+- [ ] Frontend rendering checked
+- [ ] No conflicts with parent theme updates
+
+### Security
+- [ ] All user input sanitized
+- [ ] All output escaped
+- [ ] Capability checks for admin functions
+- [ ] Nonces for form submissions
+- [ ] No direct file access (proper WordPress file structure)
+
+## Edge Plugin Integration
+
+- Edge Plugin provides core functionality (custom blocks, etc.)
+- Do not duplicate Edge Plugin functionality
+- Use Edge Plugin hooks/filters when available
+- Refer to https://docs.etchwp.com for Edge Plugin API
+- Test compatibility with Edge Plugin updates
+
+## Parent Theme Updates
+
+- Parent theme (`etch-theme`) updates via WordPress standard mechanism
+- Do not modify parent theme files
+- Test child theme after parent theme updates
+- Report compatibility issues if they arise
+
+## Upstream Sync Considerations
+
+- Before syncing upstream, backup local customizations
+- Document all local changes that differ from upstream
+- Common conflict files: `functions.php`, `theme.json`, `style.css`
+- Preserve local customizations during merge conflicts
+- Test thoroughly after upstream sync
